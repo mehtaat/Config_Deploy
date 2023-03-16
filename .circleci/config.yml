@@ -13,7 +13,7 @@ jobs:
           command: |
             AWS_ACCESS_KEY_ID=AKIAYYQKRGHR23CRGJC3 AWS_SECRET_ACCESS_KEY=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 aws cloudformation deploy \
             --template-file template.yml \
-            --stack-name my-stack \
+            --stack-name my-stack2 \
             --region us-west-2
   
 workflows:
