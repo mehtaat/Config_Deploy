@@ -16,7 +16,7 @@ jobs:
   #           --stack-name my-stack2 \
   #           --region us-west-2
 
-    configure_infrastructure:
+  configure_infrastructure:
     docker:
       - image: python:3.7-alpine3.11
     steps:
