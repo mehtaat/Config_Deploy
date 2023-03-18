@@ -11,7 +11,7 @@ jobs:
       - run:
           name: "Ensure backend infrastructure exist"
           command: |
-            AWS_ACCESS_KEY_ID=AKIAZNGIO34ASJYZDSM3 AWS_SECRET_ACCESS_KEY=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 aws cloudformation deploy \
+            AWS_ACCESS_KEY_ID=AKIAZNGIO34AR2KJD6XA AWS_SECRET_ACCESS_KEY=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 aws cloudformation deploy \
             --template-file template.yml \
             --stack-name my-stack2 \
             --region us-west-2
