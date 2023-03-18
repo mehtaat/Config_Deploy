@@ -3,37 +3,37 @@
 version: 2.1
 
 jobs:
-  create_infrastructure:
-    docker:
-      - image: amazon/aws-cli
-    steps:
-      - checkout
-      - run:
-          name: "Ensure backend infrastructure exist"
-          command: |
-            AWS_ACCESS_KEY_ID=AKIAZNGIO34ASJYZDSM3 AWS_SECRET_ACCESS_KEY=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 aws cloudformation deploy \
-            --template-file template.yml \
-            --stack-name my-stack2 \
-            --region us-west-2
-
-  # configure_infrastructure:
+  # create_infrastructure:
   #   docker:
-  #     - image: python:3.7-alpine3.11
+  #     - image: amazon/aws-cli
   #   steps:
   #     - checkout
-  #     - add_ssh_keys:
-  #         fingerprints: ["87:df:01:4a:56:bc:14:b3:ee:d2:5c:8d:23:7d:47:ee"] 
   #     - run:
-  #         name: "Install Ansible"
+  #         name: "Ensure backend infrastructure exist"
   #         command: |
-  #           apk add --update ansible
-  #     - run:
-  #         name: "Run Playbook and Configure Server"
-  #         command: |
-  #           ansible-playbook -i inventory main-remote.yml
+  #           AWS_ACCESS_KEY_ID=AKIAZNGIO34ASJYZDSM3 AWS_SECRET_ACCESS_KEY=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 aws cloudformation deploy \
+  #           --template-file template.yml \
+  #           --stack-name my-stack2 \
+  #           --region us-west-2
+
+  configure_infrastructure:
+    docker:
+      - image: python:3.7-alpine3.11
+    steps:
+      - checkout
+      - add_ssh_keys:
+          fingerprints: ["87:df:01:4a:56:bc:14:b3:ee:d2:5c:8d:23:7d:47:ee"] 
+      - run:
+          name: "Install Ansible"
+          command: |
+            apk add --update ansible
+      - run:
+          name: "Run Playbook and Configure Server"
+          command: |
+            ansible-playbook -i inventory main-remote.yml
   
 workflows:
   my-workflow:
     jobs:
-      - create_infrastructure
-      # - configure_infrastructure
+      # - create_infrastructure
+      - configure_infrastructure
