@@ -8,7 +8,7 @@
        SecurityGroups:
          - !Ref InstanceSecurityGroup
        # Change this, as applicable to you      
-       KeyName: KeyPair_Demo
+       KeyName: mehtaat_KeyPair
        # Change this, as applicable to you
        # You may need to find out what instance types are available in your region - use https://cloud-images.ubuntu.com/locator/ec2/
        ImageId: 'ami-0735c191cf914754d' 
